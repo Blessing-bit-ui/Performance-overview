@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <table border="1px solid black">
+    <table border="1px solid black" id="Table">
 <thead><b> Performance Overview</b></thead>
 <tbody>
     <tr>
@@ -18,36 +18,48 @@
     <tr>
         <td>Innovation management</td>
         <td>100</td>
-        <td><input type="number" min="0" max="99"></td>
-        <td class="status"></td>
+        <td><input type="number" min="0" max="99" id="result1"></td>
+        <td id="status1"></td>
     </tr>
     <tr>
          <td>International marketing</td>
         <td>100</td>
-        <td><input type="number" min="0" max="99"></td>
-        <td class="status"></td>
+        <td><input type="number" min="0" max="99" id="result2"></td>
+        <td id="status2"></td>
     </tr>
     <tr>
         <td>Information Systems</td>
         <td>100</td>
-        <td><input type="number"  min="0" max="99"></td>
-        <td class="status"></td>
+        <td><input type="number"  min="0" max="99" id="result3"></td>
+        <td id="status3"></td>
     </tr>
     <tr>
          <td>Financial management</td>
         <td>100</td>
-        <td><input type="number" min="0" max="99"></td>
-        <td class="status"></td>
+        <td><input type="number" min="0" max="99" id="result4"></td>
+        <td id="status4"></td>
     </tr>
     <tr>
      <td>Global Sustainbility</td>
         <td>100</td>
-        <td><input type="number" min="0" max="99"></td>
-        <td class="status"></td>
+        <td><input type="number" min="0" max="99" id="result5"></td>
+        <td id="status5"></td>
     </tr>
 </tbody>
 </table>
+<button id="submit-result">Submit</button>
 <script>
+    function displayResult(){
+        let result=document.querySelector("#result1");
+        let status=document.querySelector("#status1");
+        if(result<50){
+            status.innerHTML=Fail
+        } else{
+            status.innerHTML=Pass
+           }
+        }
+let button=document.querySelector("#submit-result")
+button.addEventListener("click", displayResult)
 
 </script>
 </body>
