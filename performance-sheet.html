@@ -30,11 +30,11 @@
     <tr>
         <td>Information Systems</td>
         <td>100</td>
-        <td><input type="number"  min="0" max="99" id="result3"></td>
+        <td><input type="number" min="0" max="99" id="result3"></td>
         <td id="status3"></td>
     </tr>
     <tr>
-         <td>Financial management</td>
+        <td>Financial management</td>
         <td>100</td>
         <td><input type="number" min="0" max="99" id="result4"></td>
         <td id="status4"></td>
@@ -45,22 +45,65 @@
         <td><input type="number" min="0" max="99" id="result5"></td>
         <td id="status5"></td>
     </tr>
+    <tr>
+     <td>Economics and Finance</td>
+        <td>100</td>
+        <td><input type="number" min="0" max="99" id="result6"></td>
+        <td id="status6"></td>
+    </tr>
+    <tr>
+     <td>Corporate Strategy</td>
+        <td>100</td>
+        <td><input type="number"min="0" max="99" id="result7"></td>
+        <td id="status7"></td>
+    </tr>
+    <tr>
+     <td>Religious Studies</td>
+        <td>100</td>
+        <td><input type="number" min="0" max="99" id="result8"></td>
+        <td id="status8"></td>
+    </tr>
+    <tr>
+     <td>Global Sustainbility</td>
+        <td>100</td>
+        <td><input type="number" min="0" max="99" id="result9"></td>
+        <td id="status9"></td>
+    </tr>
+    <tr>
+     <td>Global Sustainbility</td>
+        <td>100</td>
+        <td><input type="number" min="0" max="99" id="result10"></td>
+        <td id="status10"></td>
+    </tr>
 </tbody>
 </table>
 <button id="submit-result">Submit</button>
 <script>
     function displayResult(){
-        let result=document.querySelector("#result1");
-        let status=document.querySelector("#status1");
-        if(result<50){
-            status.innerHTML=Fail
+        for ( let i=1; i<=10; i++ ){
+        let result=document.querySelector(`#result${i}`).value;
+        let status=document.querySelector(`#status${i}`);
+        let value= Math.round(Number(result.trim()));
+
+        if(value<0 || value >99|| isNaN(value) ){
+            status.innerHTML="Incorrect Input";
+         continue;
+        }
+        else if(value==""){
+            status.innerHTML="No Input";
+        }
+        else if (value<50){
+            status.innerHTML="Fail";
+            status.style.backgroundColor="red"
         } else{
-            status.innerHTML=Pass
+            status.innerHTML="Pass";
+            status.style.backgroundColor="blue";
            }
         }
+    }
 let button=document.querySelector("#submit-result")
 button.addEventListener("click", displayResult)
 
 </script>
 </body>
-</html>
+</html
